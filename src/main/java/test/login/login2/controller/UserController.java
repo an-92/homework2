@@ -3,15 +3,20 @@ package test.login.login2.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import test.login.login2.dto.UserDto;
 import test.login.login2.service.UserService;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/")
 //@AllArgsConstructor 를 안쓰는 이유는 ?
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
+
+    //★ Mapping : Get(조회), Post(등록), Put(수정), Delete(삭제)
 
     //메인페이지
     @GetMapping("/")
@@ -20,13 +25,13 @@ public class UserController {
     }
 
     //회원가입 페이지
-    @GetMapping("/user/signup")
+    @GetMapping("/user/signup") //화면 가져오는거니까 GetMapping
     public String dispSingup() {
         return "/signup";
     }
 
     //회원가입 처리
-    @GetMapping("/user/signup")
+    @PostMapping("/user/signup") //입력된 내용 받아오는 거니까 PostMapping
     public String execSignup(UserDto userdto) {
         userService.joinUser(userdto);
 
@@ -64,7 +69,7 @@ public class UserController {
     }
 
     //어드민 페이지
-    @GetMapping("admin")
+    @GetMapping("/admin")
     public String dispAdmin() {
         return "/admin";
     }

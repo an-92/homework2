@@ -23,8 +23,6 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	//spring-boot-starter-security : 스프링 시큐리티를 사용하기 위해 추가
-	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 
 	runtimeOnly 'com.h2database:h2'
@@ -39,22 +37,12 @@ dependencies {
 	implementation('io.swagger:swagger-annotations:1.6.6')
 	implementation('io.swagger:swagger-models:1.6.6')
 
-	//Spring security
-	implementation 'org.springframework.boot:spring-boot-starter-security:'
-
 	//h2
 	implementation 'com.h2database:h2'
-
-	//Spring JPA
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
 	//test
 	// JUnit
 	implementation 'junit:junit:4.13.1'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-
-
 
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

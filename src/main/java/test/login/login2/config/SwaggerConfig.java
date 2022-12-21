@@ -39,7 +39,7 @@ public class SwaggerConfig {
                 .apiInfo(apiInfo())
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("test.login.login2.controller"))
-                .paths(PathSelectors.ant("/user"))
+                .paths(PathSelectors.ant("/"))
                 .build();
     }
 
