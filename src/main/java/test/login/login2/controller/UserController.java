@@ -11,7 +11,6 @@ import test.login.login2.service.UserService;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/")
-//@AllArgsConstructor 를 안쓰는 이유는 ?
 public class UserController {
 
     private final UserService userService;
@@ -19,15 +18,15 @@ public class UserController {
     //★ Mapping : Get(조회), Post(등록), Put(수정), Delete(삭제)
 
     //메인페이지
-    @GetMapping("/")
+    @GetMapping("")
     public String index() {
-        return "/index";
+        return "index";
     }
 
     //회원가입 페이지
     @GetMapping("/user/signup") //화면 가져오는거니까 GetMapping
     public String dispSingup() {
-        return "/signup";
+        return "signup";
     }
 
     //회원가입 처리
@@ -35,42 +34,42 @@ public class UserController {
     public String execSignup(UserDto userdto) {
         userService.joinUser(userdto);
 
-        return "redirect:/user/login";
+        return "redirect:login";
     }
 
     //로그인 페이지
     @GetMapping("/user/login")
     public String dispLogin() {
-        return "/login";
+        return "login";
     }
 
     //로그인 결과 페이지
     @GetMapping("/user/login/result")
     public String dispLoginResult() {
-        return "/loginSuccess";
+        return "loginSuccess";
     }
 
     //로그아웃 결과 페이지
     @GetMapping("/user/logout/result")
     public String dispLogout() {
-        return "/logout";
+        return "logout";
     }
 
     //접근 거부 페이지
     @GetMapping("/user/denied")
     public String dispDenied() {
-        return "/denied";
+        return "denied";
     }
 
     //내 정보 페이지
     @GetMapping("/user/info")
     public String dispMyInfo() {
-        return "/myinfo";
+        return "myinfo";
     }
 
     //어드민 페이지
     @GetMapping("/admin")
     public String dispAdmin() {
-        return "/admin";
+        return "admin";
     }
 }

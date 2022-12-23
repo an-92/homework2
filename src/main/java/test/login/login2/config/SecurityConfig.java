@@ -43,13 +43,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin()
-                .loginPage("/user/login")
-                .defaultSuccessUrl("/user/login/result")
+                .loginPage("/user/login")   //로그인 뷰 페이지
+                .defaultSuccessUrl("/user/login/result")    //로그인 성공 후 이동할 페이지
                 .permitAll()
 
                 .and()
                 .logout()
-                .logoutRequestMatcher(new AntPathRequestMatcher("/usr/logout"))
+                .logoutRequestMatcher(new AntPathRequestMatcher("/usr/logout/result"))
                 .logoutSuccessUrl("/user/logout/result")
                 .invalidateHttpSession(true)
 
@@ -58,6 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .csrf().disable();
+
+        http.headers().frameOptions().sameOrigin();
     }
 
     @Override
